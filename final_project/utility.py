@@ -6,4 +6,9 @@ def echo_command(command=""):
 
 
 def echo_result(command=""):
-    print(f"{colors.BOLD}{colors.OKGREEN}\n=== {command} ==={colors.ENDC}")
+    print(f"{colors.BOLD}{colors.OKGREEN}\n>>> {command} <<<{colors.ENDC}")
+
+
+def get_confirmation(message=""):
+    answer = input(f"{message} (yes/no) : ")
+    return answer.lower() == "yes"
