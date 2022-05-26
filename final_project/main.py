@@ -1,19 +1,33 @@
 
+import os
+import signal
 from commands import commands
+from colors import colors
+from utility import echo_command
 
-# removes the spaces & uppercase letters from the commands
-newCommands = {}
-for c in commands.keys():
-    newCommands[c.replace(' ', '').lower()] = commands[c]
-commands = newCommands
-del newCommands
+# welcome
+os.system('cls')
+print("\n@@ Final Project by Ali Rahmani")
 
-print("\nHey!\n")
+
+# handle ctrl+c
+def on_ctrl_c(signum, frame):
+    echo_command("Exit")
+    exit()
+
+
+signal.signal(signal.SIGINT, on_ctrl_c)
+
+# command loop
 while True:
-    command = input("\nEnter a command: ")
+    print(f"\n{colors.BOLD}Enter a command:{colors.ENDC}")
+    command = input(f"> ")
     command = command.replace(' ', '').lower()
 
     if command in commands.keys():
-        commands[command]()
+        echo_command(commands[command]['name'])
+        commands[command]['func']()
     else:
         print("Invalid command!")
+
+    print("\n-----------------------")

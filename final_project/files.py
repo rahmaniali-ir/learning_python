@@ -25,3 +25,9 @@ def get_extension(file=""):
 
 def is_png(file):
     return get_extension(file) == "png"
+
+
+def get_file_name(file):
+    parts = file.split("/")
+    file_name = parts.pop()
+    return file_name.split(".")[0]
