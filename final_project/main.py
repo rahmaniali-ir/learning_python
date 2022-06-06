@@ -8,7 +8,7 @@ from utility import echo_bold, echo_command, echo_error
 # welcome
 os.system('cls')
 print("\n@@ Final Project by Ali Rahmani")
-print("@@ Enter 'help' get list of supported commands")
+print("@@ Enter 'help' to get list of supported commands")
 
 
 # handle ctrl+c
