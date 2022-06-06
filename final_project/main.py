@@ -3,11 +3,12 @@ import os
 import signal
 from commands import commands
 from colors import colors
-from utility import echo_command
+from utility import echo_bold, echo_command, echo_error
 
 # welcome
 os.system('cls')
 print("\n@@ Final Project by Ali Rahmani")
+print("@@ Enter 'help' get list of supported commands")
 
 
 # handle ctrl+c
@@ -20,7 +21,7 @@ signal.signal(signal.SIGINT, on_ctrl_c)
 
 # command loop
 while True:
-    print(f"\n{colors.BOLD}Enter a command:{colors.ENDC}")
+    echo_bold("\nEnter a command:")
     command = input(f"> ")
     command = command.replace(' ', '').lower()
 
@@ -28,6 +29,6 @@ while True:
         echo_command(commands[command]['name'])
         commands[command]['func']()
     else:
-        print("Invalid command!")
+        echo_error("Invalid command")
 
     print("\n-----------------------")
