@@ -2,7 +2,6 @@
 import os
 import signal
 from commands import commands
-from colors import colors
 from utility import echo_bold, echo_command, echo_error
 
 # welcome
