@@ -72,6 +72,14 @@ def echo_path():
     echo_result(t.folder_windows())
 
 
+def move_system_path():
+    new_path = input("Source folder: ")
+    os.chdir(new_path)
+
+    cwd = os.getcwd()
+    echo_result(f"Current directory: { cwd }")
+
+
 def search_pic():
     source = input("Source folder: ")
     target = input("Target folder: ")
@@ -152,6 +160,11 @@ commands = {
         "name": "Path",
         "func": echo_path,
         "comment": "Get the current system path"
+    },
+    "movepath": {
+        "name": "Move System Path",
+        "func": move_system_path,
+        "comment": "Move system path to the new path"
     },
     "searchpic": {
         "name": "Search Pic",
